@@ -1,64 +1,40 @@
-import { useState } from 'react';
+// import { useState } from "react";
+// import './InputState.css'
 
-const Form = () => {
-    const [answer, setAnswer] = useState('');
-    const [error, setError] = useState(null);
-    const [status, setStatus] = useState('typing');
+// const Form = () => {
+//   const [firstName, setFirstName] = useState("");
+//   const [lastName, setLastName] = useState("");
 
-    // condition for the status state
-    if (status === 'success'){
-        return <h1>You are correct</h1>
-    }
 
-    // Event to obtain the value feom the textarea
 
-    const handleEventTextarea = (e) => {
-        setAnswer(e.target.value);
-    }
+//   // setting fullName state.
+//   const fullName = firstName + " " + lastName;
 
-    // setting the Async and await to handle the onSubmit in the form
-    async function handleSubmit (e) {
-        e.preventDefault();
-        setStatus('success');
-        try {
-            await submitForm(answer);
-            setStatus('success');
-        } catch (err) {
-            setStatus('typing');
-            setError(error);
-        }
-    }
-        // returning ton the DOM
-        return (
-            <>
-            <form onClick={handleSubmit}>
-                <h1>Ranger of the Platform cosmology</h1>
-                <p>Who is the first nigeria to win award</p>
-                  <textarea 
-                  value={answer} 
-                  onChange={handleEventTextarea}
-                  disabled={status === 'submitting'}
-                  />
-                  <button disabled={answer.length === 0 || status === 'submitting'}>
-                    Submit
-                  </button>
-                  {error !== null && <p className='error'>{error.message}</p>}
-            </form>
-            </>
-        );
-  }
-    // handling the submit event
-    const submitForm = (answer) => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                let shouldError = answer.toLowerCase() !== 'kalu'
-                if (shouldError) {
-                    reject(new Error('Good guess but a wrong answer. Try agai'))
-                } else {
-                    resolve();
-                }
-            })
-        })
-    }
+//   // Event handler to obtain the the value from the input of yhe firstName
+//   function handleFirstName(e) {
+//     setFirstName(e.target.value);
+//   }
+//   // Event handler to obtain the the value from the input of yhe lastName
+//   function handleLastName(e) {
+//     setLastName(e.target.value);
+//   }
 
-export default Form;
+//   // rendering to the DOM
+//   return (
+//     <>
+//       <label>
+//         <h2>Let's check you in</h2>
+//         FirstName: {""}
+//         <input value={firstName} onChange={handleFirstName} /> <br />
+//         FirstName: {""}
+//         <input value={lastName} onChange={handleLastName} />
+//       </label>
+//       <div>
+//         <h3>
+//         <strong>Your ticket number is : <p className="red">{fullName}</p></strong>
+//         </h3>
+//       </div>
+//     </>
+//   );
+// };
+// export default Form;

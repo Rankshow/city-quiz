@@ -35,7 +35,8 @@ function App() {
       <h1>Guessing name of a country</h1>
         <p>Which country won the 2022 Football world cup?</p>
         <form onSubmit={handleSubmit}>
-          <textarea value={answer} onChange={handleTextareaChange} disabled={status === 'submitting'}/> <br />
+          <textarea
+           value={answer} onChange={handleTextareaChange} disabled={status === 'submitting'}/> <br />
             <button className='btn' disabled={answer.length === 0 || status === 'submitting'}>
                submit
             </button>
@@ -46,7 +47,7 @@ function App() {
   );
 }
 
-// function for tthe submitForm
+// function for the submitForm
 function submitForm (answer) {
   //pretend it's hitting the network.
   return new Promise((resolve, reject) => {
